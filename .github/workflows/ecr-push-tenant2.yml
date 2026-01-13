@@ -1,4 +1,4 @@
-name: Build and Push to ECR
+name: Build and Push to ECR from Tenant2
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4   # (2)
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.TENANT2_AWS_ACCOUNT_ID }}:role/GithubActionsEcrPushRole
+          role-to-assume: arn:aws:iam::${{ secrets.TENANT2_AWS_ACCOUNT_ID }}:role/GithubActionsEcrPushRoleTenant2
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
